@@ -13,6 +13,7 @@ export function AuthForm() {
       setMode("signUp");
     }
   }
+
   return (
     <>
       <div>
