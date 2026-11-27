@@ -24,10 +24,14 @@ export function NoteItem({ note }: { note: Note }) {
             onChange={(e) => setTitleInput(e.target.value)}
           />
           <button
-            onClick={() => {
-              editNote.mutate({ id: note.id, title: titleInput.trim() });
-              setIsEdit(false);
-            }}
+            onClick={() =>
+              editNote.mutate(
+                { id: note.id, title: titleInput.trim() },
+                {
+                  onSuccess: () => setIsEdit(false),
+                },
+              )
+            }
           >
             Save
           </button>
